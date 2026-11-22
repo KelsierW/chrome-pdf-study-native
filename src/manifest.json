@@ -1,0 +1,30 @@
+{
+  "name": "伴讀筆記（原生 PDF 版）",
+  "description": "跟讀已開啟的 Chrome PDF 分頁。",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "minimum_chrome_version": "116",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlwaw7zMtbACi71sG4UBfXRHSrJIYxeWhR0rSTWS8EQv+ZqqWLISuV19c++JaD2Bb5xWTaTzQZmums5MX9VOLY5EQwt9KynTlx1CxwuTg6eDbY0JIPC8WjQ16ksN9CE1sac4gs4ILn8MGAkByTyN2G3o7aZDRF3MDUVN5xZsMCjrbuUBZWyu2L+zsiQ/EusgSDxEPRelVpDetRQHMj6Uu9WZ0zb4UWsL7mpeon0JRk67rU/mvaTRDpesuIjbjf8hHTScalic0tHxzaRVCcfLhCeNitm8jXkJcBYoBm5AxpT6krvKic5jVsxzRpiAvawlj1oDO395ehDoh7luMTZnN2wIDAQAB",
+  "permissions": [
+    "sidePanel",
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "file:///*"
+  ],
+  "background": {
+    "service_worker": "worker.js"
+  },
+  "side_panel": {
+    "default_path": "panel.html"
+  },
+  "action": {
+    "default_title": "開啟伴讀筆記（原生 PDF 版）"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'; connect-src 'self' http://127.0.0.1:17372"
+  }
+}

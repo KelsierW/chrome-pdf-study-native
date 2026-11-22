@@ -1,0 +1,5 @@
+/node_modules/
+/extension/
+/.study-data/
+*.pdf
+*.log

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>伴讀 PDF 閱讀器</title>
+  <link rel="stylesheet" href="study.css">
+</head>
+<body class="viewer">
+  <header class="viewer-bar">
+    <label class="primary picker">選擇 PDF<input id="lecture" type="file" accept="application/pdf,.pdf" disabled></label>
+    <span id="filename">開啟講義</span>
+    <label class="page-jump">頁碼 <input id="jump" type="number" min="1" value="1" disabled></label>
+    <span id="total"></span>
+  </header>
+  <p id="viewer-status" role="status">選擇本機 PDF 後，就能邊翻頁邊看側欄的翻譯與重點。</p>
+  <main id="pages" aria-label="PDF 頁面"></main>
+  <script type="module" src="viewer.js"></script>
+</body>
+</html>
