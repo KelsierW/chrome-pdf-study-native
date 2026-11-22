@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>伴讀筆記（原生 PDF 版）</title>
+  <link rel="stylesheet" href="study.css">
+</head>
+<body class="panel">
+  <header class="brand">
+    <h1>伴讀筆記</h1>
+    <button id="follow" class="primary" type="button" aria-pressed="false">開始跟讀</button>
+  </header>
+  <div class="reading-bar">
+    <p id="location">選擇要閱讀的內容</p>
+    <button id="open-pdf" type="button">開啟 PDF</button>
+  </div>
+  <nav aria-label="伴讀功能">
+    <button id="show-reading" type="button" aria-pressed="true">目前頁面</button>
+    <button id="show-sources" type="button" aria-pressed="false">參考資料</button>
+    <div class="text-size" role="group" aria-label="側欄字體大小">
+      <button type="button" aria-label="縮小側欄字體" title="縮小側欄字體" disabled>A−</button>
+      <output id="panel-text-size" aria-label="目前的側欄字體大小">100%</output>
+      <button type="button" aria-label="放大側欄字體" title="放大側欄字體" disabled>A+</button>
+    </div>
+  </nav>
+  <p class="status" id="status" role="status">跟讀時，選定頁面的可見內容與相關引文會交給 GPT。</p>
+  <button id="file-settings" type="button" hidden>開啟檔案存取設定</button>
+  <p class="status" id="import-status" role="status" hidden></p>
+  <main>
+    <section id="reading">
+      <article id="page-reply" tabindex="-1"></article>
+      <section id="conversation" aria-label="本頁提問"></section>
+    </section>
+    <section id="sources" hidden>
+      <div class="source-actions">
+        <button id="add-exams" class="primary" type="button">匯入考古題</button>
+        <button id="add-notes" type="button">匯入其他資料</button>
+        <input id="reference-input" type="file" multiple accept=".pdf,.txt,.md" hidden>
+      </div>
+      <p class="fine-print">支援 PDF、TXT、Markdown。考卷檔名可包含四位數年份。</p>
+      <ul id="reference-list"></ul>
+    </section>
+  </main>
+  <form id="question-form">
+    <label for="question">對目前頁面提問</label>
+    <div class="composer">
+      <textarea id="question" enterkeyhint="send" placeholder="哪個觀念想再弄懂？" rows="2" maxlength="1500"></textarea>
+      <button id="ask" class="primary" type="submit" disabled>送出</button>
+    </div>
+  </form>
+  <dialog id="original">
+    <form method="dialog"><button>關閉</button></form>
+    <h2 id="original-title"></h2>
+    <div id="original-content"></div>
+  </dialog>
+  <script type="module" src="panel-text-size.js"></script>
+  <script type="module" src="panel.js"></script>
+</body>
+</html>
